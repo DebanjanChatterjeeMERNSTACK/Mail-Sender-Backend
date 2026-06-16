@@ -250,7 +250,7 @@ const sendMailEvent = async (req, res) => {
 
     await transporter.sendMail({
       from: "debanjanthechatterjee@gmail.com",
-      to: process.env.EVENT_EMAIL,
+      to: "debanjanthechatterjee@gmail.com",
       subject: "🎉 Event Booking Confirmation",
       html: `
   <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden;">
@@ -280,7 +280,7 @@ const sendMailEvent = async (req, res) => {
             <td style="padding: 8px;">${email}</td>
           </tr>
             <tr style="background: #f1f5f9;">
-            <td style="padding: 8px;"><strong>Email:</strong></td>
+            <td style="padding: 8px;"><strong>Phone:</strong></td>
             <td style="padding: 8px;">${phoneNumber}</td>
           </tr>
           <tr>
