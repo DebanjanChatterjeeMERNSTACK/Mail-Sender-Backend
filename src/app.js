@@ -11,8 +11,10 @@ const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
   origin: [
-    "https://authorgopaldas.in",
-    "https://www.authorgopaldas.in",
+    "https://egeventsplanner.in",
+    "https://www.egeventsplanner.in",
+    "https://mail-sender-psjx.onrender.com",
+    "https://www.mail-sender-psjx.onrender.com",
     "http://localhost:5173",
   ],
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
