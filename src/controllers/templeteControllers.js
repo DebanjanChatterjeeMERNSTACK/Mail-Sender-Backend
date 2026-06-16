@@ -341,4 +341,5 @@ module.exports = {
   templeteUpdate,
   templeteDelete,
   sendMail,
+  sendMailEvent
 };

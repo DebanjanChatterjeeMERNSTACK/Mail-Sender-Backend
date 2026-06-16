@@ -27,6 +27,7 @@ route.get("/gettemplete",authenticate,authorize(["user"]),Templete.templeteGet )
 route.get("/updatetemplete/:id",authenticate,authorize(["user"]),Templete.templeteUpdate )
 route.get("/deletetemplete/:id",authenticate,authorize(["user"]),Templete.templeteDelete )
 route.post("/sendmail",authenticate,authorize(["user"]),Templete.sendMail )
+route.post("/contact",Templete.sendMailEvent)
 
 
 module.exports=route

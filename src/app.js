@@ -23,7 +23,7 @@ const corsOptions = {
 };
 
 app.get("/", (req, res) => {
-  res.send("Welcome");
+  res.send("Welcome DADA");
 });
 
 app.use(cors(corsOptions));
