@@ -238,7 +238,7 @@ const sendMail = async (req, res) => {
 
 const sendMailEvent = async (req, res) => {
   try {
-    const { name, email, date, occasion, location, message } = req.body;
+    const { name, email, date, occasion,phoneNumber, location, message } = req.body;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -278,6 +278,10 @@ const sendMailEvent = async (req, res) => {
           <tr style="background: #f1f5f9;">
             <td style="padding: 8px;"><strong>Email:</strong></td>
             <td style="padding: 8px;">${email}</td>
+          </tr>
+            <tr style="background: #f1f5f9;">
+            <td style="padding: 8px;"><strong>Email:</strong></td>
+            <td style="padding: 8px;">${phoneNumber}</td>
           </tr>
           <tr>
             <td style="padding: 8px;"><strong>Occasion:</strong></td>
