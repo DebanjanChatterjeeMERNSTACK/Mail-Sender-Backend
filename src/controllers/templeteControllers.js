@@ -200,6 +200,7 @@ const sendMail = async (req, res) => {
       subject: template.subjectMail,
       html: `
     <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+       <p>Respected Sir/Madam </p>
         <p>${template.bodyMail}</p>
 
         <div style="margin-top: 20px;">
@@ -243,9 +244,9 @@ const sendMailEvent = async (req, res) => {
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gnail.com",
-      port: 587,
+      port: 465,
       secure: false,
-      service: "gmail",
+      // service: "gmail",
       auth: {
         user: "debanjanthechatterjee@gmail.com",
         pass: "giqo qelp wzwg dtpf",
