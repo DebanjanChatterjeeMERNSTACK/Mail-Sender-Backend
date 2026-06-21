@@ -9,6 +9,8 @@ const { Resend } =require("resend");
 
 dotenv.config({ quiet: true });
 
+ const resend = new Resend(process.env.RESEND_API_KEY);
+
 const templeteCreate = async (req, res) => {
   try {
     const id = req.user.id;
@@ -255,11 +257,11 @@ const sendMailEvent = async (req, res) => {
     //     pass: "giqo qelp wzwg dtpf",
     //   },
     // });
-    const resend = new Resend(process.env.RESEND_API_KEY);
+   
 
     await resend.emails.send({
-      from: "debanjanthechatterjee@gmail.com",
-      to: process.env.EVENT_EMAIL || "debanjanthechatterjee@gmail.com",
+      from: "onboarding@resend.dev",
+      to: process.env.EVENT_EMAIL,
       subject: "🎉 Event Booking Confirmation",
       html: `
   <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden;">
