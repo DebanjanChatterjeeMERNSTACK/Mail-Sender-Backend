@@ -4,12 +4,11 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
-const { Resend } =require("resend");
-
+const { Resend } = require("resend");
 
 dotenv.config({ quiet: true });
 
- const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const templeteCreate = async (req, res) => {
   try {
@@ -191,16 +190,16 @@ const sendMail = async (req, res) => {
       });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: registerData.email,
-        pass: registerData.appPasword,
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: registerData.email,
+    //     pass: registerData.appPasword,
+    //   },
+    // });
 
-    await transporter.sendMail({
-      from: registerData.email,
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
       to: email,
       subject: template.subjectMail,
       html: `
@@ -257,7 +256,6 @@ const sendMailEvent = async (req, res) => {
     //     pass: "giqo qelp wzwg dtpf",
     //   },
     // });
-   
 
     await resend.emails.send({
       from: "onboarding@resend.dev",
