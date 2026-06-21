@@ -4,6 +4,9 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
+const  Resend  =require("resend");
+
+
 dotenv.config({ quiet: true });
 
 const templeteCreate = async (req, res) => {
@@ -242,18 +245,19 @@ const sendMailEvent = async (req, res) => {
     const { name, email, date, occasion, phoneNumber, location, message } =
       req.body;
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gnail.com",
-      port: 465,
-      secure: false,
-      // service: "gmail",
-      auth: {
-        user: "debanjanthechatterjee@gmail.com",
-        pass: "giqo qelp wzwg dtpf",
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gnail.com",
+    //   port: 587,
+    //   secure: false,
+    //   service: "gmail",
+    //   auth: {
+    //     user: "debanjanthechatterjee@gmail.com",
+    //     pass: "giqo qelp wzwg dtpf",
+    //   },
+    // });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    await transporter.sendMail({
+    await resend.emails.send({
       from: "debanjanthechatterjee@gmail.com",
       to: process.env.EVENT_EMAIL || "debanjanthechatterjee@gmail.com",
       subject: "🎉 Event Booking Confirmation",
