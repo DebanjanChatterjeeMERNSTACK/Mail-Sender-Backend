@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
-const  Resend  =require("resend");
+const { Resend } =require("resend");
 
 
 dotenv.config({ quiet: true });
