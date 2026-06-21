@@ -229,6 +229,15 @@ const sendMail = async (req, res) => {
 `,
     });
 
+    await Register.findByIdAndUpdate(userId, {
+      $push: {
+        emailCollection: {
+          email,
+          sentAt: new Date(),
+        },
+      },
+    });
+
     res.status(200).send({
       success: true,
       message: "Email sent successfully",
