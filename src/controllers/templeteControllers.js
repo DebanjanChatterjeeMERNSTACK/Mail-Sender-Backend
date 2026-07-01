@@ -190,25 +190,25 @@ const sendMail = async (req, res) => {
       });
     }
 
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: registerData.email,
-    //     pass: registerData.appPasword,
-    //   },
-    // });
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: registerData.email,
+        pass: registerData.appPasword,
+      },
+    });
 
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
+    await transporter.sendMail({
+      from: registerData.email,
       to: email,
       subject: template.subjectMail,
       html: `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-       <p>Respected Sir/Madam </p>
-        <p>${template.bodyMail}</p>
+            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                  <p>Respected Sir/Madam </p>
+                    <p>${template.bodyMail}</p>
 
-        <div style="margin-top: 20px;">
-            <a
+              <div style="margin-top: 20px;">
+                <a
                 href="${template.cvLink}"
                 target="_blank"
                 style="
