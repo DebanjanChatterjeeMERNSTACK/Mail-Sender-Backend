@@ -83,13 +83,11 @@ const templeteUpdate = async (req, res) => {
       // Delete old file
       if (template.cvLink) {
         const oldFileName = template.cvLink.split("/upload/")[1];
-
+        
         if (oldFileName) {
-          const oldFilePath = path.join(__dirname, "src/pdf", oldFileName);
-
-          if (fs.existsSync(oldFilePath)) {
-            fs.unlinkSync(oldFilePath);
-          }
+          const oldFilePath = path.join("src/pdf", oldFileName);
+          console.log(oldFilePath)
+          
         }
       }
 
@@ -134,11 +132,9 @@ const templeteDelete = async (req, res) => {
       const oldFileName = template.cvLink.split("/upload/")[1];
 
       if (oldFileName) {
-        const filePath = path.join(__dirname, "src/pdf", oldFileName);
-
-        if (fs.existsSync(filePath)) {
-          fs.unlinkSync(filePath);
-        }
+        const filePath = path.join("src/pdf", oldFileName);
+        fs.unlinkSync(filePath);
+        
       }
     }
 
