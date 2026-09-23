@@ -16,6 +16,8 @@ const corsOptions = {
     "https://mail-sender-psjx.onrender.com",
     "https://www.mail-sender-psjx.onrender.com",
     "http://localhost:5173",
+    "https://cvmailsender.netlify.app",
+    "https://www.cvmailsender.netlify.app"
   ],
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   credentials: true,
