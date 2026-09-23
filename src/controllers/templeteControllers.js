@@ -86,7 +86,7 @@ const templeteUpdate = async (req, res) => {
         
         if (oldFileName) {
           const oldFilePath = path.join("src/pdf", oldFileName);
-          console.log(oldFilePath)
+          fs.unlinkSync(oldFilePath);
           
         }
       }
