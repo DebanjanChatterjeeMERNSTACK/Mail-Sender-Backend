@@ -21,7 +21,7 @@ const RegisterSchema = new mongoose.Schema(
     emailCollection: {
       type: Array,
     },
-    appPasword: {
+    appPassword: {
       type: String,
       require: [true, "app password is require"],
     },

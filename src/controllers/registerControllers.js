@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 const sendResetPasswordEmail = async (email, resetUrl) => {
   await transporter.sendMail({
-    from: `"My App" <${process.env.EMAIL_USER}>`,
+    from: `"MAIL SENDER" <${process.env.EMAIL_USER}>`,
     to: email,
     subject: "Reset Your Password",
     html: `
@@ -109,22 +109,16 @@ const login = async (req, res) => {
     }
 
     // Generate JWT
-    jwt.sign(
+   const token= jwt.sign(
       { name: data.name, id: data._id, role: data.role },
       process.env.JWTKEY,
-      { expiresIn: "7d" },
-      (err, token) => {
-        if (error) {
-          return res
-            .status(400)
-            .send({ message: error.message, success: false });
-        }
+      { expiresIn: "7d" }
+    );
 
-        return res
+     res
           .status(200)
           .send({ message: "Login Successfull", success: true, token });
-      },
-    );
+      
   } catch (err) {
     res.status(400).send({ message: error.message, success: false });
   }
@@ -179,7 +173,7 @@ const forgotPassword = async (req, res) => {
     return res.status(200).json({
       success: true,
       message:
-        "If an account exists, a password reset link has been sent.",
+        "Password reset link has been sent to your email.",
     });
   } catch (error) {
     console.error("Forgot password error:", error);
