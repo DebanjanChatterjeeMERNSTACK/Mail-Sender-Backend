@@ -45,7 +45,7 @@ const templeteGet = async (req, res) => {
       return res.status(400).send({ message: "Please Login", success: false });
     }
 
-    const data = await Templete.find({ useId: id });
+    const data = await Templete.find({ userId: id }).sort({ createdAt: -1 });
 
     res.status(200).send({ message: "Fetch Successful", success: true, data });
   } catch (error) {
@@ -194,7 +194,7 @@ const sendMail = async (req, res) => {
       service: "gmail",
       auth: {
         user: registerData.email,
-        pass: registerData.appPasword,
+        pass: registerData.appPassword,
       },
     });
 
