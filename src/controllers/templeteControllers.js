@@ -196,56 +196,17 @@ const sendMail = async (req, res) => {
       from: registerData.email,
       to: email,
       subject: template.subjectMail,
-      html: `
-            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+         html: `
+           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
                   <p style="font-weight: 600; color:black ; font-size: 14px;">Respected Sir/Madam ,</p>
-                    <p style="color:black ;font-weight: 500; font-size: 16px;">${template.bodyMail}</p>
-
-              <div style="
-    margin-top: 20px;
-    padding: 18px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    background-color: #f9fafb;
-    text-align: center;
-">
-    <div style="
-        width: 44px;
-        height: 44px;
-        margin: 0 auto 10px;
-        border-radius: 8px;
-        background-color: #dbeafe;
-        color: #eb2525;
-        line-height: 44px;
-        font-size: 20px;
-        font-weight: 700;
-    ">
-        PDF
-    </div>
-
-    <div style="
-        color: #1f2937;
-        font-size: 15px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    ">
-        Candidate CV
-    </div>
-
-    <div style="
-        color: #6b7280;
-        font-size: 13px;
-        margin-bottom: 14px;
-    ">
-        Your CV is attached as a PDF document.
-    </div>
+                    <p style="color:black ; font-size: 16px;font-weight: 500;">${template.bodyMail}</p>
 
     <a
         href="${template.cvLink}"
         target="_blank"
         style="
             display: inline-block;
-            background-color: #417dff;
+            background-color: #ff4141;
             color: #ffffff;
             text-decoration: none;
             padding: 10px 20px;
@@ -256,7 +217,6 @@ const sendMail = async (req, res) => {
     >
         View / Download CV
     </a>
-</div>
     </div>
 `,
     });
