@@ -83,11 +83,10 @@ const templeteUpdate = async (req, res) => {
       // Delete old file
       if (template.cvLink) {
         const oldFileName = template.cvLink.split("/upload/")[1];
-        
+
         if (oldFileName) {
           const oldFilePath = path.join("src/pdf", oldFileName);
           fs.unlinkSync(oldFilePath);
-          
         }
       }
 
@@ -134,7 +133,6 @@ const templeteDelete = async (req, res) => {
       if (oldFileName) {
         const filePath = path.join("src/pdf", oldFileName);
         fs.unlinkSync(filePath);
-        
       }
     }
 
@@ -200,27 +198,65 @@ const sendMail = async (req, res) => {
       subject: template.subjectMail,
       html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                  <p>Respected Sir/Madam </p>
-                    <p>${template.bodyMail}</p>
+                  <p style="font-weight: 600; color:black ; font-size: 14px;">Respected Sir/Madam ,</p>
+                    <p style="color:black ;font-weight: 500; font-size: 16px;">${template.bodyMail}</p>
 
-              <div style="margin-top: 20px;">
-                <a
-                href="${template.cvLink}"
-                target="_blank"
-                style="
-                    display: inline-block;
-                    background-color: #2563eb;
-                    color: #ffffff;
-                    text-decoration: none;
-                    padding: 12px 24px;
-                    border-radius: 6px;
-                    font-weight: 600;
-                    font-size: 14px;
-                "
-            >
-                Download CV
-            </a>
-        </div>
+              <div style="
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    text-align: center;
+">
+    <div style="
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 10px;
+        border-radius: 8px;
+        background-color: #dbeafe;
+        color: #eb2525;
+        line-height: 44px;
+        font-size: 20px;
+        font-weight: 700;
+    ">
+        PDF
+    </div>
+
+    <div style="
+        color: #1f2937;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    ">
+        Candidate CV
+    </div>
+
+    <div style="
+        color: #6b7280;
+        font-size: 13px;
+        margin-bottom: 14px;
+    ">
+        Your CV is attached as a PDF document.
+    </div>
+
+    <a
+        href="${template.cvLink}"
+        target="_blank"
+        style="
+            display: inline-block;
+            background-color: #417dff;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+        "
+    >
+        View / Download CV
+    </a>
+</div>
     </div>
 `,
     });
