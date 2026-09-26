@@ -215,7 +215,7 @@ const sendMail = async (req, res) => {
             font-size: 13px;
         "
     >
-        View / Download CV
+        View / Download Document
     </a>
     </div>
 `,
